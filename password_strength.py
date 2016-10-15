@@ -20,9 +20,9 @@ def get_password_strength(password):
         
 ]
 
-    string_pass_list = [password]*4+[password[1:-1]]
+    string_pass_list = [password]*4 + [password[1:-1]]
 
-    pass_complexity += sum(any(symbol for symbol  in y if symbol  in x ) for x,y in zip(string_pass_list,string_pass_params))
+    pass_complexity += sum(any(symbol for symbol  in y if symbol  in x ) for x, y in zip(string_pass_list,string_pass_params))
 
     pass_complexity += password not in pass_black_list
 
