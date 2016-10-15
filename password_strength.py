@@ -17,6 +17,7 @@ def get_password_strength(password):
         string.digits,
         string.punctuation,
         string.punctuation+string.digits,
+        
 ]
 
     string_pass_list = [password]*4+[password[1:-1]]
