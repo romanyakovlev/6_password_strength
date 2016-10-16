@@ -4,9 +4,9 @@ import string
 def get_password_strength(password):
 
     with open('password_strength.txt', 'r') as file_pass:
-        pass_black_list = file_pass.read()
-    file_pass.closed
-    pass_black_list = pass_black_list.split('\n')
+        pass_black_string = file_pass.read()
+   
+    pass_black_list = pass_black_string.split('\n')
 
     pass_complexity = 1
 
