@@ -7,7 +7,7 @@ def get_password_strength(password):
         pass_black_string = file_pass.read()
    
     pass_black_list = pass_black_string.split('\n')
-
+    
     pass_complexity = 1
 
     string_pass_params = [
@@ -27,12 +27,14 @@ def get_password_strength(password):
 
     pass_complexity += sum(complexity_counter)
     pass_complexity += password not in pass_black_list
-
-    if len(password) < 8 and len(password) > 4:
+    
+    len_pass = len(password)
+    
+    if len_pass < 8 and len_pass > 4:
         pass_complexity += 1
-    if len(password) > 8 and len(password) < 14:
+    if len_pass > 8 and len_pass < 14:
         pass_complexity += 2
-    if len(password) > 14:
+    if len_pass > 14:
         pass_complexity += 3
 
     return pass_complexity
