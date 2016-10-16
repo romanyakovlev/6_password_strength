@@ -5,7 +5,7 @@ def get_password_strength(password):
 
     with open('password_strength.txt', 'r') as file_pass:
         pass_black_string = file_pass.read()
-   
+
     pass_black_list = pass_black_string.split('\n')
     
     pass_complexity = 1
@@ -22,19 +22,19 @@ def get_password_strength(password):
 
     string_pass_list = [password]*4+[password[1:-1]]
 
-    complexity_counter = any(symbol for symbol  in pass_string if symbol  in check_values )
-    for check_values, pass_string in zip(string_pass_list,string_pass_params)
+    complexity_counter = list(any(symbol for symbol  in pass_string if symbol  in check_values)
+    for check_values, pass_string in zip(string_pass_list,string_pass_params))
 
     pass_complexity += sum(complexity_counter)
     pass_complexity += password not in pass_black_list
-    
+
     len_pass = len(password)
-    
-    if len_pass < 8 and len_pass > 4:
+
+    if len_pass >= 4 and len_pass < 8 :
         pass_complexity += 1
-    if len_pass > 8 and len_pass < 14:
+    if len_pass >= 8 and len_pass < 14:
         pass_complexity += 2
-    if len_pass > 14:
+    if len_pass >= 14:
         pass_complexity += 3
 
     return pass_complexity
@@ -46,4 +46,4 @@ if __name__ == '__main__':
     parser.add_argument('password_text')
     password_text = parser.parse_args().password_text
 
-    print(get_password_strength(password_text))
+    print('Сложность вашего пароля {}/10'.format(get_password_strength(password_text)))
