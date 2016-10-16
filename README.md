@@ -10,3 +10,17 @@
 * длина пароля от 4 до 7 знаков +1
 * длина пароля от 8 до 13 +2
 * длина пароля от 14 и бесконечность +3
+
+# Установка
+
+```sh
+git clone https://github.com/romanyakovlev/6_password_strength
+```
+
+Запускаем скрипт
+
+```sh
+python3 password_strength.py your_pass
+```
+
+где your_pass - строка из твоего пароля
