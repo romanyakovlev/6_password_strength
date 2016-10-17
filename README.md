@@ -24,4 +24,4 @@ git clone https://github.com/romanyakovlev/6_password_strength
 python3 password_strength.py your_pass black_list_file_name
 ```
 
-где your_pass - строка из твоего пароля , black_list_file_name - название файла, содержащего ненадежные пароли
+где your_pass - строка из твоего пароля , black_list_file_name - название файла, содержащего ненадежные пароли.
