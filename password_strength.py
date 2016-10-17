@@ -1,13 +1,13 @@
 import argparse
 import string
 
-def get_password_strength(password):
+def get_password_strength(password, black_list):
 
-    with open('password_strength.txt', 'r') as file_pass:
+    with open(black_list, 'r') as file_pass:
         pass_black_string = file_pass.read()
 
     pass_black_list = pass_black_string.split('\n')
-    
+
     pass_complexity = 1
 
     string_pass_params = [
@@ -44,6 +44,8 @@ if __name__ == '__main__':
 
     parser = argparse.ArgumentParser()
     parser.add_argument('password_text')
+    parser.add_argument('black_list')
     password_text = parser.parse_args().password_text
-
-    print('Сложность вашего пароля {}/10'.format(get_password_strength(password_text)))
+    black_list = parser.parse_args().black_list
+    
+    print('Сложность вашего пароля {}/10'.format(get_password_strength(password_text, black_list)))
