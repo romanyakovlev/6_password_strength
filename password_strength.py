@@ -8,9 +8,7 @@ def get_black_list(filepath):
 
     return pass_black_string.split('\n')
 
-def get_password_strength(password, black_list_filepath):
-
-    pass_black_list = get_black_list(black_list_filepath)
+def get_password_strength(password, pass_black_list):
 
     pass_complexity = 1
 
@@ -47,7 +45,8 @@ if __name__ == '__main__':
     parser.add_argument('password_text')
     parser.add_argument('black_list')
     args =  vars(parser.parse_args())
-    password_text, black_list = args['password_text'], args['black_list']
+    password_text, black_list_filepath = args['password_text'], args['black_list']
+    black_list = get_black_list(black_list_filepath)
     password_strength = get_password_strength(password_text, black_list)
 
     print('Сложность вашего пароля {}/10'.format(password_strength))
