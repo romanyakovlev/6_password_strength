@@ -42,7 +42,7 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument('password_text')
     parser.add_argument('black_list')
-    args =  vars(parser.parse_args())
+    args = vars(parser.parse_args())
     password_text, black_list = args['password_text'], args['black_list']
 
     print('Сложность вашего пароля {}/10'.format(get_password_strength(password_text, black_list)))
